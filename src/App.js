@@ -1,4 +1,5 @@
 import React from 'react';
+import Converter from './components/Converter/Converter';
 import TabList from './components/TabList/Tablist';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
@@ -8,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Switch>
+        {/* <Switch> */}
           <TabList list={[
             {
               "name": "Converter",
@@ -26,10 +27,10 @@ function App() {
               "id": 3
             }
           ]}/>
-          {/* <Route exact path="/convert" component={} />
-          <Route exact path="/start-end" component={} />
+          <Route exact path="/convert" component={Converter} />
+          {/*<Route exact path="/start-end" component={} />
           <Route exact path="/timer" component={} /> */}
-        </Switch>
+        {/* </Switch> */}
       </BrowserRouter>
     </div>
   );
