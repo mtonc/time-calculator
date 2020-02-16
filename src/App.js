@@ -1,10 +1,11 @@
 import React from 'react';
-import Converter from './components/Converter/Converter';
-import StartEnd from './components/StartEnd/StartEnd';
-import TabList from './components/TabList/Tablist';
-import {BrowserRouter, Route, Redirect} from 'react-router-dom';
+import Converter from './components/Converter/Converter'
+import StartEnd from './components/StartEnd/StartEnd'
+import TabList from './components/TabList/Tablist'
+import Timer from './components/Timer/Timer'
+import {BrowserRouter, Route, Redirect} from 'react-router-dom'
 
-import './App.css';
+import './App.css'
 
 function App() {
   return (
@@ -32,8 +33,7 @@ function App() {
           </Route>
           <Route exact path="/convert" component={Converter} />
           <Route exact path="/start-end" component={StartEnd} />
-          {/*<Route exact path="/timer" component={} /> */}
-
+          <Route exact path="/timer" component={Timer} />
       </BrowserRouter>
     </div>
   );
