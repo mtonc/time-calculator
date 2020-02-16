@@ -1,0 +1,12 @@
+.tab-link {
+	color: #333;
+	text-decoration: none;
+	box-shadow: 2px 15px 2px -8px #a7a7a7;
+	transition: all 300ms ease-in-out;
+
+	&:hover, &.active{
+		color: #000;
+		box-shadow: 2px 15px 8px -8px #a7a7a7;
+		transform: scale(1.1);
+	}
+}

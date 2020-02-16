@@ -2,6 +2,8 @@ import React from 'react'
 import moment from 'moment'
 import TimeInput from '../TimeInput/TimeInput'
 
+import './startend.scss'
+
 class StartEnd extends React.Component {
 	constructor(props) {
 		super(props)
@@ -42,13 +44,12 @@ class StartEnd extends React.Component {
 		return (
 			<div className="start-end">
 				<TimeInput className="time" handleChange={this.handleStart} />
-				<br/>
 				<TimeInput className="time" handleChange={this.handleEnd} />						
-				<h4>{
+				<h2>{
 					moment.isDuration(this.state.duration) ?
 						Number.parseFloat(this.state.duration.asHours()).toPrecision(3) :
 						""
-				}</h4>
+				}</h2>
 			</div>
 		)
 	}

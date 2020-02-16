@@ -1,5 +1,7 @@
-import React from 'react';
-import Tab from '../Tab/Tab';
+import React from 'react'
+import Tab from '../Tab/Tab'
+
+import './tablist.scss'
 
 const TabList = ({list}) => {
 
@@ -16,4 +18,4 @@ const TabList = ({list}) => {
     );
 }
 
-export default TabList;
+export default TabList

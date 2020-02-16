@@ -1,11 +1,13 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {NavLink, withRouter} from 'react-router-dom';
+
+import './tab.scss'
 
 const Tab = ({name, route}) => {
     return (
-        <Link to={route} className="tab-link">
+        <NavLink to={route} className="tab-link" activeClassName="active">
             {name}
-        </Link>
+        </NavLink>
     );
 }
 

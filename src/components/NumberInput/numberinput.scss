@@ -1,0 +1,10 @@
+
+.number-wrapper {
+	font-size: 1.5em;
+
+	input[class^="number"] {
+		height: 30px;
+		width: 40px;
+		font-size: inherit;
+	}
+}

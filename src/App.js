@@ -2,7 +2,7 @@ import React from 'react';
 import Converter from './components/Converter/Converter';
 import StartEnd from './components/StartEnd/StartEnd';
 import TabList from './components/TabList/Tablist';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Redirect} from 'react-router-dom';
 
 import './App.css';
 
@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Switch> */}
           <TabList list={[
             {
               "name": "Converter",
@@ -28,10 +27,13 @@ function App() {
               "id": 3
             }
           ]}/>
+          <Route exact path="/">
+            <Redirect to="/convert" />
+          </Route>
           <Route exact path="/convert" component={Converter} />
           <Route exact path="/start-end" component={StartEnd} />
           {/*<Route exact path="/timer" component={} /> */}
-        {/* </Switch> */}
+
       </BrowserRouter>
     </div>
   );

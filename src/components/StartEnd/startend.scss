@@ -1,0 +1,12 @@
+.start-end {
+	height: 90vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.time {
+		width: 100px;
+		margin: 10px 0;
+	}
+}
