@@ -1,7 +1,8 @@
 import React from 'react';
 import Converter from './components/Converter/Converter';
+import StartEnd from './components/StartEnd/StartEnd';
 import TabList from './components/TabList/Tablist';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 
 import './App.css';
 
@@ -28,8 +29,8 @@ function App() {
             }
           ]}/>
           <Route exact path="/convert" component={Converter} />
-          {/*<Route exact path="/start-end" component={} />
-          <Route exact path="/timer" component={} /> */}
+          <Route exact path="/start-end" component={StartEnd} />
+          {/*<Route exact path="/timer" component={} /> */}
         {/* </Switch> */}
       </BrowserRouter>
     </div>
