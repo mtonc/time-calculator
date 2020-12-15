@@ -1,13 +1,13 @@
 import React from 'react';
-import Converter from './components/Converter/Converter'
-import StartEnd from './components/StartEnd/StartEnd'
+import Converter from './pages/Converter/Converter'
+import StartEnd from './pages/StartEnd/StartEnd'
+import Timer from './pages/Timer/Timer'
 import TabList from './components/TabList/Tablist'
-import Timer from './components/Timer/Timer'
 import {BrowserRouter, Route, Redirect} from 'react-router-dom'
 
 import './App.css'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <BrowserRouter>

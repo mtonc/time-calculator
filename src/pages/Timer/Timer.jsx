@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import ToggleButton from '../ToggleButton/ToggleButton'
+import ToggleButton from '../../components/ToggleButton/ToggleButton'
 
 import './timer.scss'
 
