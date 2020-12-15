@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import TimeInput from '../TimeInput/TimeInput'
+import TimeInput from '../../components/TimeInput/TimeInput'
 
 import './startend.scss'
 
