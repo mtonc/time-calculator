@@ -1,58 +1,65 @@
 import React from 'react'
-import moment from 'moment'
+import { Interval } from 'luxon'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+
 import TimeInput from '../../components/TimeInput/TimeInput'
+import { setStartTime, setEndTime, setDuration } from '../../redux/startend/startend.actions'
+import { selectStartTime, selectEndTime, selectDuration } from '../../redux/startend/startend.selectors'
 
 import './startend.scss'
 
-class StartEnd extends React.Component {
-	constructor(props) {
-		super(props)
+const StartEnd = ({startTime, endTime, duration, setStartTime, setEndTime, setDuration }) => {
 
-		this.state = {
-			startTime: "",
-			endTime: "",
-			duration: {}
+
+	const handleStart = (e) => {
+		setStartTime(e.target.value)
+		calcTime()
+	}
+
+	const handleEnd = (e) => {
+		setEndTime(e.target.value)
+		calcTime()
+	}
+
+	const calcTime = () => {
+		let start_arr = startTime.split(':')
+		const start = { hours: start_arr[0], minutes: start_arr[1] }
+
+		let end_arr = endTime.split(":")
+		const end =  { hours: end_arr[0], minutes : end_arr[1] }
+
+		const interval = Interval.fromDateTimes(start, end)
+		if (interval) { 
+			setDuration(interval)
 		}
-	}
+	}	
 
-	handleStart = (e) => {
-		this.setState({startTime: e.target.value}, () => this.calcTime())
-	}
-
-	handleEnd = (e) => {
-		this.setState({endTime: e.target.value}, () => this.calcTime())
-	}
-
-	calcTime = () => {
-		let start_arr = this.state.startTime.split(':')
-		const start = moment().set({
-			'hours': start_arr[0],
-			'minutes': start_arr[1]
-		})
-
-		let end_arr = this.state.endTime.split(":")
-		const end = moment().set({
-			'hours': end_arr[0],
-			'minutes': end_arr[1]
-		})
-		if (start && end) {
-			this.setState(state => {return {duration: moment.duration(end.diff(start))}})
-		}
-	}
-
-	render() {		
-		return (
-			<div className="start-end">
-				<TimeInput className="time" handleChange={this.handleStart} />
-				<TimeInput className="time" handleChange={this.handleEnd} />						
-				<h2>{
-					moment.isDuration(this.state.duration) ?
-						Number.parseFloat(this.state.duration.asHours()).toPrecision(3) :
-						""
-				}</h2>
-			</div>
-		)
-	}
+	return (
+		<div className="start-end">
+			<label>Start Time</label>
+			<TimeInput className="time" handleChange={handleStart} />
+			<label>End Time</label>
+			<TimeInput className="time" handleChange={handleEnd} />		
+			<h2>{
+				(Interval.isInterval(duration)) ?
+					Number.parseFloat(duration.count('minutes')/60).toPrecision(4) :
+					0
+			}</h2>
+		</div>
+	)
 }
 
-export default StartEnd
+const mapStateToProps = createStructuredSelector({
+	startTime: selectStartTime,
+	endTime: selectEndTime,
+	duration: selectDuration
+})
+
+const mapDispatchToProps = dispatch => ({
+	setStartTime: startTime => dispatch(setStartTime(startTime)),
+	setEndTime: endTime => dispatch(setEndTime(endTime)),
+	setDuration: duration => dispatch(setDuration(duration))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(StartEnd)

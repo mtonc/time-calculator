@@ -19,7 +19,7 @@ const Converter = ({hours, minutes, updateHours, updateMinutes}) => {
 
 	return (
 		<div className="converter">
-			<NumberInput classname="number-in" handleHour={handleHours} handleMinute={handleMinutes} punc=":"/>
+			<NumberInput classname="number-in" hours={hours} minutes={minutes} handleHour={handleHours} handleMinute={handleMinutes} punc=":"/>
 			<br/>
 			<h2>{Number(hours + minutes/60).toPrecision(4)}</h2>
 		</div>
