@@ -33,7 +33,7 @@ const App = () => {
           </Route>
           <Route exact path="/convert" component={Converter} />
           <Route exact path="/start-end" component={StartEnd} />
-          {/* <Route exact path="/timer" component={Timer} /> */}
+          <Route exact path="/timer" component={Timer} />
       </BrowserRouter>
     </div>
   );
